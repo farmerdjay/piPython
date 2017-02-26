@@ -35,7 +35,7 @@ def lightShow():
     allLightsOn()
     sleep(.3)
     allLightsOff()
-    
+
 def lightRun():
     allLightsOff()
     for i in allLights():
@@ -69,7 +69,7 @@ def lightUp(color):
             color.off()
             sleep(.1)
     return
-            
+
 def answerLight(value):
     global numberOfCorrect
     global numberOfIncorrect
@@ -140,7 +140,7 @@ def additionGame():
     while True:
         num1 = random.randint(min, max)
         num2 = random.randint(min, max)
-    
+
         if addition(num1, num2) == False:
             # Quiting
             print "---------------------------------------"
@@ -173,7 +173,7 @@ def subtractionGame():
     while True:
         num1 = random.randint(1, max)
         num2 = random.randint(1, num1)
-    
+
         if subtraction(num1, num2) == False:
             # Quiting
             print "---------------------------------------"
@@ -204,14 +204,14 @@ def multiplicationGame():
     while True:
         num1 = random.randint(1, 10)
         num2 = random.randint(1, 10)
-    
+
         if multiplication(num1, num2) == False:
             # Quiting
             print "---------------------------------------"
             break
         print ""
     return
-    
+
 def askMax():
     print "Please enter the maximum number: ",
     max = int(raw_input())
@@ -245,7 +245,6 @@ def addingMissingGame():
 
         addingMissing(num1, num2)
         print ""
-        
     return
 
 def getNumberOfCorrect():
@@ -254,7 +253,7 @@ def getNumberOfCorrect():
 
 def getNumberOfIncorrect():
     global numberOfIncorrect
-    return numberOfIncorrect
+   :echo has('python') || has('python3') return numberOfIncorrect
 
 def printResult():
     print ""
@@ -304,7 +303,7 @@ while True:
     while True:
         game = chooseGame()
         print""
-        
+
         if game == 1:
             additionGame()
         elif game == 2:
@@ -313,4 +312,4 @@ while True:
             subtractionGame()
         elif game == 4:
             multiplicationGame()
-            
+
