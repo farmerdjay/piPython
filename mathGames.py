@@ -63,7 +63,7 @@ def allLightsOn():
         i.on()
 
 def lightUp(color):
-    for i in xrange(5):
+    for i in range(5):
             color.on()
             sleep(.1)
             color.off()
@@ -82,7 +82,7 @@ def answerLight(value):
         if value == True:
             lightShow()
     allLightsOff()
-    for i in xrange(num):
+    for i in range(num):
         allLights()[i].on()
     return
 
@@ -90,7 +90,7 @@ def answerLight(value):
 
 
 def askAdd(num1, num2):
-    print num1, "+", num2, "=",
+    print(num1, "+", num2, "=", end=' ')
     input = getNumberInput()
     return input
 
@@ -98,18 +98,18 @@ def checkAdd(num1, num2, input):
     return input != num1 + num2
 
 def askRange():
-    print "Please enter the minimum number: ",
-    min = int(raw_input())
-    print "Please enter the maximum number: ",
-    max = int(raw_input())
-    print ""
+    print("Please enter the minimum number: ", end=' ')
+    min = int(input())
+    print("Please enter the maximum number: ", end=' ')
+    max = int(input())
+    print("")
     return min, max
 
 def answerSound(bvalue):
     if bvalue:
-        Sound("soundSamples/aRight" + str(random.choice(range(7))) + ".wav").play()
+        Sound("soundSamples/aRight" + str(random.choice(list(range(7)))) + ".wav").play()
     else:
-        Sound("soundSamples/aWrong" + str(random.choice(range(7))) + ".wav").play()
+        Sound("soundSamples/aWrong" + str(random.choice(list(range(7)))) + ".wav").play()
 
 def answerResponse(bvalue):
     global numberOfCorrect
@@ -143,13 +143,13 @@ def additionGame():
 
         if addition(num1, num2) == False:
             # Quiting
-            print "---------------------------------------"
+            print("---------------------------------------")
             break
-        print ""
+        print("")
     return
 
 def askSubtract(num1, num2):
-    print num1, "-", num2, "=",
+    print(num1, "-", num2, "=", end=' ')
     input = getNumberInput()
     return input
 
@@ -176,13 +176,13 @@ def subtractionGame():
 
         if subtraction(num1, num2) == False:
             # Quiting
-            print "---------------------------------------"
+            print("---------------------------------------")
             break
-        print ""
+        print("")
     return
 
 def askMultiplication(num1, num2):
-    print num1, "x", num2, "=",
+    print(num1, "x", num2, "=", end=' ')
     input = getNumberInput()
     return input
 
@@ -207,20 +207,20 @@ def multiplicationGame():
 
         if multiplication(num1, num2) == False:
             # Quiting
-            print "---------------------------------------"
+            print("---------------------------------------")
             break
-        print ""
+        print("")
     return
 
 def askMax():
-    print "Please enter the maximum number: ",
-    max = int(raw_input())
-    print ""
+    print("Please enter the maximum number: ", end=' ')
+    max = int(input())
+    print("")
     return max
 
 def askAddingMissing(num1, num2):
-    print num1, "+ __ =", num2, "?",
-    input = int(raw_input())
+    print(num1, "+ __ =", num2, "?", end=' ')
+    input = int(input())
     return input
 
 def checkAddingMissing(num1, num2, input):
@@ -233,7 +233,7 @@ def addingMissing(num1, num2):
         answerResponse(False)
         input = askAddingMissing(num1, num2)
     answerResponse(True)
-    print "Yes!", num1, "+", input, "=", num2
+    print("Yes!", num1, "+", input, "=", num2)
     return
 
 def addingMissingGame():
@@ -244,7 +244,7 @@ def addingMissingGame():
         num2 = random.randint(num1, max)
 
         addingMissing(num1, num2)
-        print ""
+        print("")
     return
 
 def getNumberOfCorrect():
@@ -253,47 +253,47 @@ def getNumberOfCorrect():
 
 def getNumberOfIncorrect():
     global numberOfIncorrect
-   :echo has('python') || has('python3') return numberOfIncorrect
+    return numberOfIncorrect
 
 def printResult():
-    print ""
-    print "Number of Correct:", getNumberOfCorrect()
-    print "Number of Incorrect:", getNumberOfIncorrect()
+    print("")
+    print("Number of Correct:", getNumberOfCorrect())
+    print("Number of Incorrect:", getNumberOfIncorrect())
     if getNumberOfCorrect() + getNumberOfIncorrect() != 0:
         sum = getNumberOfCorrect() + getNumberOfIncorrect()
-        print "Grade:", getNumberOfCorrect()*100.0/sum
+        print("Grade:", getNumberOfCorrect()*100.0/sum)
     else:
-        print "Grade: 000"
-    print ""
+        print("Grade: 000")
+    print("")
 
 def getNumberInput():
-    temp = raw_input()
+    temp = input()
     while True:
         if temp.isdigit():
             return int(temp)
         if temp == "q":
             printResult()
             return
-        print "That is non-sense. Try again (Enter q to quit): "
-        temp = raw_input()
+        print("That is non-sense. Try again (Enter q to quit): ")
+        temp = input()
 
 def printTitle():
-    print "**********************************"
-    print "|            Welcome to          |"
-    print "|                the             |"
-    print "|            MATH GAMES          |"
-    print "**********************************"
-    print ""
+    print("**********************************")
+    print("|            Welcome to          |")
+    print("|                the             |")
+    print("|            MATH GAMES          |")
+    print("**********************************")
+    print("")
 
 def chooseGame():
-    print "Which game would you like to play?"
-    print "1) Addition"
-    print "2) Adding Missing"
-    print "3) Subtraction"
-    print "4) Multiplication"
-    print ""
-    print "Enter a number:",
-    return int(raw_input())
+    print("Which game would you like to play?")
+    print("1) Addition")
+    print("2) Adding Missing")
+    print("3) Subtraction")
+    print("4) Multiplication")
+    print("")
+    print("Enter a number:", end=' ')
+    return int(input())
 
 while True:
     printTitle()
@@ -302,7 +302,7 @@ while True:
 
     while True:
         game = chooseGame()
-        print""
+        print("")
 
         if game == 1:
             additionGame()
